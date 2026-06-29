@@ -1,0 +1,9 @@
+/.bundle
+/node_modules
+/.ruby-lsp
+.cursorrules
+
+.env
+/*.dump
+/*.csv
+sitemap.xml

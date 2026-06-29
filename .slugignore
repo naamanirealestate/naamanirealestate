@@ -1,0 +1,28 @@
+# Ignore tests
+test/
+spec/
+
+# Ignore documentation
+doc/
+README.md
+README
+CHANGELOG
+CONTRIBUTING
+
+# Ignore system and config files not needed in production
+.rspec
+.rubocop.yml
+.rubocop_todo.yml
+.env
+.env.*.local
+.gitignore
+.git/
+.vscode/
+.idea/
+
+# Ignore unused wkhtmltopdf build assets (if manually added)
+wkhtmltox/         # if you extracted full tarball here
+**/*.deb
+**/*.tar.*
+**/*.zip
+**/*.dmg
