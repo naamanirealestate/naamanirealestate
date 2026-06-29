@@ -1,9 +1,2 @@
-/.bundle
-/node_modules
-/.ruby-lsp
-.cursorrules
-
+.DS_Store
 .env
-/*.dump
-/*.csv
-sitemap.xml

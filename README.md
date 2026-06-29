@@ -1,30 +1,19 @@
 # naamanirealestate
 
-Static single-page site for Naamani Real Estate, served by Rack + Puma on Heroku.
+Static site for Naamani Real Estate, hosted on GitHub Pages.
 
 ## Run locally
 
 ```bash
-bundle install
-rackup
+python3 -m http.server 8000
 ```
 
-Open http://localhost:9292
+Open http://localhost:8000
 
-Or with Puma directly:
+## Deploy
 
-```bash
-bundle exec puma -t 1:1
-```
+Push to `main`. GitHub Pages serves files from the repo root.
 
-## Deploy to Heroku
+In the repo on GitHub: **Settings → Pages → Build and deployment → Deploy from branch → `main` / `/ (root)`**.
 
-Confirm you want to deploy, then:
-
-```bash
-git push heroku main
-```
-
-(or `git push heroku master` if that's your branch)
-
-Uses the Ruby buildpack. One web dyno; no database or add-ons required.
+Site URL: https://naamanirealestate.github.io/naamanirealestate/
