@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
   <title>Naamani Real Estate</title>
   <meta name="description" content="Excellence in real estate. Find home with eXp Realty.">
-  <link rel="icon" href="images/naamani-real-estate-logo.png">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <link rel="icon" href="favicon.png" type="image/png">
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     .btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 0.625rem 1.25rem; border-radius: 0.375rem; font-weight: 600; cursor: pointer; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); white-space: nowrap; min-width: 8rem; }
@@ -15,11 +16,30 @@
     .btn-primary:hover { background-color: rgb(67 56 202); }
     .btn-flat { background-color: rgb(243 244 246); color: rgb(17 24 39); box-shadow: none; }
     .btn-flat:hover { background-color: rgb(229 231 235); }
+    .hero-video {
+      position: absolute;
+      inset: 0;
+    }
+    .hero-video iframe {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 100vw;
+      height: 56.25vw;
+      min-height: 100vh;
+      min-width: 177.78vh;
+      transform: translate(-50%, -50%);
+      border: 0;
+      pointer-events: none;
+    }
   </style>
 </head>
 <body class="bg-gray-50 text-gray-900 text-sm antialiased">
   <header class="relative h-screen">
     <img src="images/vancouver-banner.jpeg" alt="" class="absolute inset-0 h-full w-full object-cover" aria-hidden="true">
+    <div id="hero-video-wrap" class="absolute inset-0 overflow-hidden hidden" aria-hidden="true">
+      <div id="hero-video-player" class="hero-video"></div>
+    </div>
     <div class="absolute inset-0 bg-gradient-to-b from-gray-900/40 via-gray-900/55 to-gray-900/70" aria-hidden="true"></div>
     <div class="relative z-10 mx-auto flex max-w-3xl flex-col items-center justify-center px-6 text-center h-full">
       <img src="images/naamani-logo.png" alt="Naamani Real Estate" class="h-12 lg:h-20 w-auto brightness-0 invert drop-shadow-lg">
@@ -174,5 +194,37 @@
   </div>
 
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script>
+    var tag = document.createElement('script');
+    tag.src = 'https://www.youtube.com/iframe_api';
+    document.head.appendChild(tag);
+
+    function onYouTubeIframeAPIReady() {
+      var wrap = document.getElementById('hero-video-wrap');
+      new YT.Player('hero-video-player', {
+        host: 'https://www.youtube-nocookie.com',
+        videoId: 'zSaRmOTW2S0',
+        playerVars: {
+          autoplay: 1,
+          mute: 1,
+          loop: 1,
+          playlist: 'zSaRmOTW2S0',
+          controls: 0,
+          rel: 0,
+          modestbranding: 1,
+          playsinline: 1,
+          origin: window.location.origin
+        },
+        events: {
+          onReady: function() {
+            wrap.classList.remove('hidden');
+          },
+          onError: function() {
+            wrap.classList.add('hidden');
+          }
+        }
+      });
+    }
+  </script>
 </body>
 </html>
