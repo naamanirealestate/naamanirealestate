@@ -649,20 +649,59 @@ blockquote {
   font-weight: 450;
 }
 
-.reviews-grid {
-  grid-template-columns: 1fr 1fr;
+.reviews-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem 2rem;
+}
+
+.reviews-head h2 {
+  margin-bottom: 0;
+}
+
+.google-score {
+  font-weight: 650;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.google-score:hover {
+  text-decoration: underline;
+}
+
+.review-scroller {
+  display: flex;
   gap: 1.25rem;
   margin-top: 1.75rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: max(var(--pad), calc((100% - var(--wrap)) / 2));
+  padding-inline: max(var(--pad), calc((100% - var(--wrap)) / 2));
+  padding-bottom: 0.75rem;
+  scrollbar-width: thin;
+  scrollbar-color: var(--line) transparent;
 }
 
 .review {
   display: flex;
+  flex: 0 0 min(28rem, 82%);
   flex-direction: column;
   justify-content: space-between;
   gap: 1.5rem;
+  scroll-snap-align: start;
   background: var(--white);
   border-radius: var(--radius);
   padding: clamp(1.5rem, 3vw, 2.25rem);
+}
+
+.stars {
+  margin: 0 0 0.85rem;
+  color: var(--water);
+  font-family: var(--sans);
+  font-size: 0.95rem;
+  letter-spacing: 0.12em;
 }
 
 .review p {
@@ -967,7 +1006,6 @@ blockquote {
   .listing-card,
   .about-grid,
   .quote-grid,
-  .reviews-grid,
   .split,
   .resider-grid {
     grid-template-columns: 1fr;

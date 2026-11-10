@@ -4,7 +4,7 @@ Static site for Naamani Real Estate, hosted on GitHub Pages from the repo root.
 
 Site: https://naamanirealestate.com/
 
-Styles live in `styles.css`. There is no build step.
+Styles live in `styles.css`. There is no build step. Stylesheet and font links carry `?v=` plus a hash of the file. `python3 .cursor/skills/ship/scripts/version.py` rewrites those links, and the ship check fails if they are stale.
 
 ## Updating content
 

@@ -6,6 +6,9 @@ import sys
 import xml.etree.ElementTree as ET
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from version import mismatches
+
 ROOT = Path(__file__).resolve().parents[4]
 errors = []
 warnings = []
@@ -25,6 +28,9 @@ sitemap = read("sitemap.xml")
 robots = read("robots.txt")
 llms = read("llms.txt")
 manifest = read("site.webmanifest")
+
+for name, text in (("index.html", index), ("404.html", page404)):
+    errors.extend(mismatches(name, text))
 
 for name, text in (("index.html", index), ("404.html", page404), ("site.webmanifest", manifest)):
     for ref in sorted(set(re.findall(r'["\s,](/(?:images/)?[\w.\-]+\.(?:png|jpe?g|webp|avif|svg|ico|css|webmanifest|txt))', text))):

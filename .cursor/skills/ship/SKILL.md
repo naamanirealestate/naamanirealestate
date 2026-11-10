@@ -36,11 +36,17 @@ If the featured listing, FAQ, or facts about Adam changed, confirm every copy is
 | Stats, credentials, areas, contact | Page copy, JSON-LD, and `llms.txt` |
 | New or replaced photo | AVIF and WebP variants per README `Images` section |
 
-## 2. Refresh dates
+## 2. Refresh dates and asset versions
 
 Set today's date (YYYY-MM-DD) in both places:
 - `<lastmod>` in `sitemap.xml`
 - `"dateModified"` in the `WebPage` JSON-LD node in `index.html`
+
+Then stamp stylesheet and font links with the file hash. GitHub Pages caches stable URLs, so a changed `styles.css` or font can ship behind an old cached copy:
+
+```bash
+python3 .cursor/skills/ship/scripts/version.py
+```
 
 ## 3. Run checks
 
