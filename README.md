@@ -10,7 +10,7 @@ Styles live in `styles.css`. There is no build step.
 
 The featured listing in `index.html` is edited by hand. When it changes, update:
 
-- The listing card (price, facts, copy, photo, links)
+- The listing card (price, facts, copy, photo). The photo and View listing links go to the Resider listing, not Realtor.ca
 - The `RealEstateListing` entry in the JSON-LD block in `<head>`
 - `<lastmod>` and image entries in `sitemap.xml`
 - `dateModified` in the `WebPage` JSON-LD entry

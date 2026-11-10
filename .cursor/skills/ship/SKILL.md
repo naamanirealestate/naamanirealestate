@@ -30,7 +30,7 @@ If the featured listing, FAQ, or facts about Adam changed, confirm every copy is
 
 | Change | Update |
 |---|---|
-| Listing price, facts, photo, or status | Listing card, `RealEstateListing` JSON-LD, sitemap image entries |
+| Listing price, facts, photo, or status | Listing card, `RealEstateListing` JSON-LD, sitemap image entries. The photo and View listing links go to the Resider listing (`https://resider.ca/...`), not Realtor.ca |
 | Listing sold or removed | Remove card and `RealEstateListing` JSON-LD together |
 | FAQ wording | Visible `<details>` and `FAQPage` JSON-LD, identical text |
 | Stats, credentials, areas, contact | Page copy, JSON-LD, and `llms.txt` |
