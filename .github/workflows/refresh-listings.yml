@@ -4,6 +4,12 @@ on:
   schedule:
     - cron: "0 19 * * *"
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - featured-listing.json
+      - .cursor/skills/ship/scripts/refresh_listings.py
+      - .github/workflows/refresh-listings.yml
 
 permissions:
   contents: write
