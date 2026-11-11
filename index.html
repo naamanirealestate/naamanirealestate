@@ -36,7 +36,8 @@
   <link rel="preload" href="/fonts/source-serif-4-latin.woff2?v=2a24bad4" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/source-serif-4-italic-latin.woff2?v=011e0ca2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" as="image" type="image/avif" imagesrcset="/images/vancouver-skyline-960.avif 960w, /images/vancouver-skyline-1920.avif 1920w" imagesizes="100vw" fetchpriority="high">
-  <link rel="stylesheet" href="/styles.css?v=ab63f4ff">
+  <link rel="stylesheet" href="/styles.css?v=aada0da7">
+  
   
   
   
@@ -456,25 +457,29 @@
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
-  <header class="masthead">
+  <header class="topbar" data-topbar>
+    <div class="bar wrap">
+      <a class="logo" href="/" aria-label="Naamani Real Estate home">
+        <img src="/images/naamani-logo-480.png" alt="Naamani Real Estate" width="480" height="93">
+      </a>
+      <nav aria-label="Primary">
+        <a class="nav-extra" href="#listing-carousel">Listings</a>
+        <a class="nav-extra" href="#about">About</a>
+        <a class="nav-extra" href="#reviews">Reviews</a>
+        <a class="nav-extra" href="#home-search">Search</a>
+        <a href="#exp">Join</a>
+        <a class="nav-cta" href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="masthead">
     <picture>
       <source type="image/avif" srcset="/images/vancouver-skyline-960.avif 960w, /images/vancouver-skyline-1920.avif 1920w" sizes="100vw">
       <source type="image/webp" srcset="/images/vancouver-skyline-960.webp 960w, /images/vancouver-skyline-1920.webp 1920w" sizes="100vw">
       <img class="masthead-photo" src="/images/vancouver-skyline.jpg" alt="Vancouver skyline across False Creek, with the harbour and the North Shore mountains" width="1920" height="1080" fetchpriority="high">
     </picture>
     <div class="masthead-shade" aria-hidden="true"></div>
-    <div class="bar wrap">
-      <a class="logo" href="/" aria-label="Naamani Real Estate home">
-        <img src="/images/naamani-logo-480.png" alt="Naamani Real Estate" width="480" height="93">
-      </a>
-      <nav aria-label="Primary">
-        <a class="nav-extra" href="#about">About</a>
-        <a class="nav-extra" href="#reviews">Reviews</a>
-        <a class="nav-extra" href="#faq">FAQ</a>
-        <a href="#search">Search</a>
-        <a class="nav-cta" href="mailto:adam@naamanirealestate.com?subject=Real%20estate%20enquiry">Contact</a>
-      </nav>
-    </div>
     <div class="masthead-copy wrap">
       <p class="eyebrow">Adam Naamani, REALTOR® · eXp Realty</p>
       <h1>Find a home in Greater&nbsp;Vancouver.</h1>
@@ -493,7 +498,7 @@
         <li><a href="https://resider.ca/search?q=Port%20Coquitlam">Port Coquitlam</a></li>
       </ul>
     </div>
-  </header>
+  </div>
 
   <main id="main">
     <section class="listing" id="listing-carousel" data-listing-carousel tabindex="0" aria-roledescription="carousel" aria-labelledby="listings-heading">
@@ -622,27 +627,27 @@
       <div class="listing-rail" data-listing-nav data-listing-rail>
         <button type="button" class="listing-thumb is-active" data-dot aria-label="Show 7067 Cypress Street" aria-current="true">
           <img src="https://dvvjkgh94f2v6.cloudfront.net/8ab08887/263204449/83dcefb7.jpeg" alt="" width="96" height="72" loading="lazy" decoding="async">
-          <span class="listing-thumb-text"><span class="listing-thumb-price">$1.6M</span><span class="listing-thumb-place">Kerrisdale</span></span>
+          <span class="listing-thumb-text" aria-hidden="true"><span class="listing-thumb-price">$1.6M</span><span class="listing-thumb-place">Kerrisdale</span></span>
         </button>
         <button type="button" class="listing-thumb" data-dot aria-label="Show 303 1625 Hornby Street">
           <img src="https://dvvjkgh94f2v6.cloudfront.net/8ab08887/263204460/83dcefb7.jpeg" alt="" width="96" height="72" loading="lazy" decoding="async">
-          <span class="listing-thumb-text"><span class="listing-thumb-price">$775K</span><span class="listing-thumb-place">Yaletown</span></span>
+          <span class="listing-thumb-text" aria-hidden="true"><span class="listing-thumb-price">$775K</span><span class="listing-thumb-place">Yaletown</span></span>
         </button>
         <button type="button" class="listing-thumb" data-dot aria-label="Show 2507 5938 Olive Avenue">
           <img src="https://dvvjkgh94f2v6.cloudfront.net/8ab08887/263204840/83dcefb7.jpeg" alt="" width="96" height="72" loading="lazy" decoding="async">
-          <span class="listing-thumb-text"><span class="listing-thumb-price">$989K</span><span class="listing-thumb-place">Metrotown</span></span>
+          <span class="listing-thumb-text" aria-hidden="true"><span class="listing-thumb-price">$989K</span><span class="listing-thumb-place">Metrotown</span></span>
         </button>
         <button type="button" class="listing-thumb" data-dot aria-label="Show 2203 1888 Gilmore Avenue">
           <img src="https://dvvjkgh94f2v6.cloudfront.net/8ab08887/263204480/83dcefb7.jpeg" alt="" width="96" height="72" loading="lazy" decoding="async">
-          <span class="listing-thumb-text"><span class="listing-thumb-price">$800K</span><span class="listing-thumb-place">Brentwood Park</span></span>
+          <span class="listing-thumb-text" aria-hidden="true"><span class="listing-thumb-price">$800K</span><span class="listing-thumb-place">Brentwood Park</span></span>
         </button>
         <button type="button" class="listing-thumb" data-dot aria-label="Show A13 3075 Skeena Street">
           <img src="https://dvvjkgh94f2v6.cloudfront.net/8ab08887/263204254/83dcefb7.jpeg" alt="" width="96" height="72" loading="lazy" decoding="async">
-          <span class="listing-thumb-text"><span class="listing-thumb-price">$980K</span><span class="listing-thumb-place">Riverwood</span></span>
+          <span class="listing-thumb-text" aria-hidden="true"><span class="listing-thumb-price">$980K</span><span class="listing-thumb-place">Riverwood</span></span>
         </button>
         <button type="button" class="listing-thumb" data-dot aria-label="Show 51 2450 Hawthorne Avenue">
           <img src="https://dvvjkgh94f2v6.cloudfront.net/8ab08887/263204764/83dcefb7.jpeg" alt="" width="96" height="72" loading="lazy" decoding="async">
-          <span class="listing-thumb-text"><span class="listing-thumb-price">$750K</span><span class="listing-thumb-place">Central Pt Coquitlam</span></span>
+          <span class="listing-thumb-text" aria-hidden="true"><span class="listing-thumb-price">$750K</span><span class="listing-thumb-place">Central Pt Coquitlam</span></span>
         </button>
       </div>
     </div>
@@ -806,6 +811,68 @@
       </div>
     </section>
 
+    <section id="contact" class="cta" aria-labelledby="cta-title">
+      <div class="wrap cta-inner">
+        <div>
+          <p class="kicker">Work with Adam</p>
+          <h2 id="cta-title">Let’s talk about your next move.</h2>
+          <p>Whether you’re buying, selling, or investing in Greater Vancouver, get a clear read on price, timing, and strategy. No pressure, no obligation.</p>
+        </div>
+        <div class="cta-actions">
+          <a class="btn btn-light" href="mailto:adam@naamanirealestate.com?subject=Real%20estate%20enquiry">Email Adam</a>
+          <a class="btn btn-ghost" href="https://resider.ca/sell">Get your home’s value</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="home-search" class="band resider" aria-labelledby="resider-title">
+      <div class="wrap resider-grid">
+        <a class="resider-shot" href="https://resider.ca/" tabindex="-1" aria-hidden="true">
+          <img src="/images/resider-kitchen-800.webp" srcset="/images/resider-kitchen-800.webp 800w, /images/resider-kitchen.webp 1536w" sizes="(max-width: 900px) 100vw, 560px" alt="" width="1536" height="1024" loading="lazy" decoding="async">
+        </a>
+        <div>
+          <p class="kicker">Home search</p>
+          <h2 id="resider-title">Every listing, and the data behind it</h2>
+          <p class="quiet">Browse British Columbia MLS® listings on Resider with sold history, building pages, and neighbourhood stats. Register to see sold prices, as board rules require.</p>
+          <ul class="resider-links">
+            <li><a href="https://resider.ca/">Search listings</a></li>
+            <li><a href="https://resider.ca/bc">Browse BC areas</a></li>
+            <li><a href="https://resider.ca/sell">Home value</a></li>
+            <li><a href="https://resider.ca/home">Features</a></li>
+            <li><a href="https://resider.ca/about">About Resider</a></li>
+          </ul>
+          <a class="badge" href="https://apps.apple.com/ca/app/resider/id6752209501" aria-label="Download Resider on the App Store">
+            <img src="/images/app-store-badge.svg" alt="" width="120" height="40">
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="exp" class="exp" aria-labelledby="exp-title">
+      <div class="wrap split">
+        <div>
+          <p class="kicker">For licensed agents</p>
+          <h2 id="exp-title">Keep more of what you earn. Build something that lasts.</h2>
+          <p class="quiet">eXp Realty is a cloud-based brokerage built around agents, with a capped split, revenue share, and an AI&#8209;ready platform that works with the tools you already use.</p>
+        </div>
+        <div>
+          <ul class="exp-list">
+            <li><b>A capped split</b> Keep 80% of your commission until you have paid $16,000 CAD in company dollar in your anniversary year, then keep 100%, subject to a $285 CAD fee on each of the next 20 transactions, then $75 CAD.</li>
+            <li><b>Income beyond your own deals</b> Earn revenue share, paid from eXp’s side of the split, when agents you sponsor close. It costs nothing to participate.</li>
+            <li><b>Your AI, connected to your business</b> Plug Claude, ChatGPT, or the assistant you already use into your production, cap progress, transactions, training, and CRM through eXp’s new MCP integrations. Your choice of BoldTrail, Lofty, or Cloze CRM is included, along with SkySlope, Canva, and eXp University’s AI training.</li>
+            <li><b>Showing coverage on demand</b> Post or pick up showings and open houses with other eXp agents through ShowGo, with agreements and payment handled through the brokerage.</li>
+            <li><b>A global network</b> Refer and collaborate across 87,000+ agents and brokers in the Americas, Europe, the Middle East, Asia Pacific, and South Africa.</li>
+          </ul>
+          <div class="links">
+            <a class="btn" href="https://adamnaamani.exprealty.careers">Join eXp with Adam</a>
+            <a class="btn btn-ghost" href="mailto:adam@naamanirealestate.com?subject=Joining%20eXp%20Realty">Ask Adam about eXp</a>
+          </div>
+          <p class="fineprint">Terms as published by eXp Realty Canada, including a $199 CAD start-up fee, a $139 CAD monthly cloud brokerage fee, and per-transaction broker review and risk management fees where applicable. They describe the agent’s split, not a buyer’s or seller’s cost. Revenue share is performance-based and not guaranteed; see the <a href="https://www.exprealty.ca/income">eXp Canada income disclosure</a>. CRM AI connections are subject to availability in Canada.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section id="faq" class="band faq" aria-labelledby="faq-title">
       <div class="wrap split">
         <div>
@@ -841,68 +908,6 @@
         </div>
       </div>
     </section>
-
-    <section class="cta" aria-labelledby="cta-title">
-      <div class="wrap cta-inner">
-        <div>
-          <p class="kicker">Work with Adam</p>
-          <h2 id="cta-title">Let’s talk about your next move.</h2>
-          <p>Whether you’re buying, selling, or investing in Greater Vancouver, get a clear read on price, timing, and strategy. No pressure, no obligation.</p>
-        </div>
-        <div class="cta-actions">
-          <a class="btn btn-light" href="mailto:adam@naamanirealestate.com?subject=Real%20estate%20enquiry">Email Adam</a>
-          <a class="btn btn-ghost" href="https://resider.ca/sell">Get your home’s value</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="band resider" aria-labelledby="resider-title">
-      <div class="wrap resider-grid">
-        <a class="resider-shot" href="https://resider.ca/" tabindex="-1" aria-hidden="true">
-          <img src="/images/resider-kitchen-800.webp" srcset="/images/resider-kitchen-800.webp 800w, /images/resider-kitchen.webp 1536w" sizes="(max-width: 900px) 100vw, 560px" alt="" width="1536" height="1024" loading="lazy" decoding="async">
-        </a>
-        <div>
-          <p class="kicker">Home search</p>
-          <h2 id="resider-title">Every listing, and the data behind it</h2>
-          <p class="quiet">Browse British Columbia MLS® listings on Resider with sold history, building pages, and neighbourhood stats. Register to see sold prices, as board rules require.</p>
-          <ul class="resider-links">
-            <li><a href="https://resider.ca/">Search listings</a></li>
-            <li><a href="https://resider.ca/bc">Browse BC areas</a></li>
-            <li><a href="https://resider.ca/sell">Home value</a></li>
-            <li><a href="https://resider.ca/home">Features</a></li>
-            <li><a href="https://resider.ca/about">About Resider</a></li>
-          </ul>
-          <a class="badge" href="https://apps.apple.com/ca/app/resider/id6752209501" aria-label="Download Resider on the App Store">
-            <img src="/images/app-store-badge.svg" alt="" width="120" height="40">
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <section class="exp" aria-labelledby="exp-title">
-      <div class="wrap split">
-        <div>
-          <p class="kicker">For licensed agents</p>
-          <h2 id="exp-title">Keep more of what you earn. Build something that lasts.</h2>
-          <p class="quiet">eXp Realty is a cloud-based brokerage built around agents, with a capped split, revenue share, and an AI&#8209;ready platform that works with the tools you already use.</p>
-        </div>
-        <div>
-          <ul class="exp-list">
-            <li><b>A capped split</b> Keep 80% of your commission until you have paid $16,000 CAD in company dollar in your anniversary year, then keep 100%, subject to a $285 CAD fee on each of the next 20 transactions, then $75 CAD.</li>
-            <li><b>Income beyond your own deals</b> Earn revenue share, paid from eXp’s side of the split, when agents you sponsor close. It costs nothing to participate.</li>
-            <li><b>Your AI, connected to your business</b> Plug Claude, ChatGPT, or the assistant you already use into your production, cap progress, transactions, training, and CRM through eXp’s new MCP integrations. Your choice of BoldTrail, Lofty, or Cloze CRM is included, along with SkySlope, Canva, and eXp University’s AI training.</li>
-            <li><b>Showing coverage on demand</b> Post or pick up showings and open houses with other eXp agents through ShowGo, with agreements and payment handled through the brokerage.</li>
-            <li><b>A global network</b> Refer and collaborate across 87,000+ agents and brokers in the Americas, Europe, the Middle East, Asia Pacific, and South Africa.</li>
-          </ul>
-          <div class="links">
-            <a class="btn" href="https://adamnaamani.exprealty.careers">Join eXp with Adam</a>
-            <a class="btn btn-ghost" href="mailto:adam@naamanirealestate.com?subject=Joining%20eXp%20Realty">Ask Adam about eXp</a>
-          </div>
-          <p class="fineprint">Terms as published by eXp Realty Canada, including a $199 CAD start-up fee, a $139 CAD monthly cloud brokerage fee, and per-transaction broker review and risk management fees where applicable. They describe the agent’s split, not a buyer’s or seller’s cost. Revenue share is performance-based and not guaranteed; see the <a href="https://www.exprealty.ca/income">eXp Canada income disclosure</a>. CRM AI connections are subject to availability in Canada.</p>
-          </div>
-        </div>
-      </div>
-    </section>
   </main>
 
   <footer class="site-footer">
@@ -918,6 +923,14 @@
       </div>
     </div>
   </footer>
-  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+    (() => {
+      const topbar = document.querySelector("[data-topbar]");
+      const update = () => topbar.classList.toggle("is-scrolled", window.scrollY > 8);
+      update();
+      window.addEventListener("scroll", update, { passive: true });
+    })();
+  </script>
 </body>
 </html>

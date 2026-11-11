@@ -216,7 +216,7 @@ def thumbs_html(slides):
         buttons.append(
             f"""<button type="button" class="listing-thumb{active}" data-dot aria-label="Show {attr(slide["title"])}"{current}>
           <img src="{attr(thumb_src(slide))}" alt="" width="96" height="72" loading="lazy" decoding="async">
-          <span class="listing-thumb-text"><span class="listing-thumb-price">{short_price(slide["price"])}</span><span class="listing-thumb-place">{html.escape(place)}</span></span>
+          <span class="listing-thumb-text" aria-hidden="true"><span class="listing-thumb-price">{short_price(slide["price"])}</span><span class="listing-thumb-place">{html.escape(place)}</span></span>
         </button>"""
         )
     return "\n        ".join(buttons)
