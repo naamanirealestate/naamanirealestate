@@ -26,12 +26,11 @@ git status --short && git diff --stat
 
 Summarize what is shipping. Stop and ask if unrelated or unexpected files appear (`.env`, `.DS_Store`, large originals, stray screenshots).
 
-If the featured listing, FAQ, or facts about Adam changed, confirm every copy is updated:
+If the FAQ or facts about Adam changed, confirm every copy is updated:
 
 | Change | Update |
 |---|---|
-| Listing price, facts, photo, or status | Listing card, `RealEstateListing` JSON-LD, sitemap image entries. The photo and View listing links go to the Resider listing (`https://resider.ca/...`), not Realtor.ca |
-| Listing sold or removed | Remove card and `RealEstateListing` JSON-LD together |
+| Homepage listings | Run `python3 .cursor/skills/ship/scripts/refresh_listings.py` before the checks. It rewrites the carousel, `ItemList` JSON-LD, and `llms.txt`. A filled `featured-listing.json` becomes the first slide. |
 | FAQ wording | Visible `<details>` and `FAQPage` JSON-LD, identical text |
 | Stats, credentials, areas, contact | Page copy, JSON-LD, and `llms.txt` |
 | New or replaced photo | AVIF and WebP variants per README `Images` section |
@@ -50,7 +49,10 @@ python3 .cursor/skills/ship/scripts/version.py
 
 ## 3. Run checks
 
+Refresh the carousel first, then check. A failed feed leaves the current cards in place.
+
 ```bash
+python3 .cursor/skills/ship/scripts/refresh_listings.py
 python3 .cursor/skills/ship/scripts/check.py
 ```
 

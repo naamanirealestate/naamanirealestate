@@ -61,15 +61,61 @@ if "FAQPage" in graph:
     if visible != structured:
         errors.append("visible FAQ and FAQPage JSON-LD differ")
 
-listing = graph.get("RealEstateListing")
-card = re.search(r'<p class="price">\$([\d,]+)</p>', index)
-if listing and card:
-    if int(card.group(1).replace(",", "")) != listing["offers"]["price"]:
-        errors.append("listing card price does not match RealEstateListing JSON-LD")
-elif card and not listing:
-    errors.append("listing card present but RealEstateListing JSON-LD missing")
-elif listing and not card:
-    errors.append("RealEstateListing JSON-LD present but no listing card")
+listing = graph.get("ItemList")
+featured_path = ROOT / "featured-listing.json"
+featured = None
+if featured_path.exists():
+    try:
+        featured = json.loads(featured_path.read_text(encoding="utf-8"))
+    except json.JSONDecodeError as exc:
+        errors.append(f"featured-listing.json does not parse: {exc}")
+if featured is not None and not isinstance(featured, dict):
+    errors.append("featured-listing.json must be null or an object")
+if isinstance(featured, dict):
+    for key in ("price", "url", "title"):
+        if not featured.get(key):
+            errors.append(f"featured-listing.json missing {key}")
+    image = featured.get("image") or {}
+    if not isinstance(image, dict) or not image.get("jpg"):
+        errors.append("featured-listing.json missing image")
+
+items = (listing or {}).get("itemListElement") or []
+cards = re.findall(
+    r'data-price="(\d+)" data-address="([^"]*)" data-url="([^"]*)"[\s\S]*?<p class="price">\$([\d,]+)</p>[\s\S]*?<h2>([^<]*)</h2>[\s\S]*?<a class="btn" href="([^"]*)">',
+    index,
+)
+if listing and len(cards) != len(items):
+    errors.append(f"listing cards ({len(cards)}) do not match ItemList ({len(items)})")
+for index_card, card in enumerate(cards):
+    price, address, url, shown_price, heading, href = card
+    address = html.unescape(address)
+    heading = html.unescape(heading)
+    if heading != address:
+        errors.append(f"listing heading {heading} does not match {address}")
+    if href != url:
+        errors.append(f"listing link {href} does not match {url}")
+    if int(shown_price.replace(",", "")) != int(price):
+        errors.append(f"listing price text does not match {address}")
+    if index_card < len(items):
+        item = items[index_card].get("item") or {}
+        if item.get("offers", {}).get("price") != int(price):
+            errors.append(f"ItemList price does not match {address}")
+        if item.get("url") != url:
+            errors.append(f"ItemList url does not match {address}")
+        street = (item.get("about") or {}).get("address", {}).get("streetAddress")
+        if street != address:
+            errors.append(f"ItemList address does not match {address}")
+if isinstance(featured, dict) and cards:
+    if cards[0][2] != featured["url"] or int(cards[0][0]) != int(featured["price"]):
+        errors.append("first listing card does not match featured-listing.json")
+if "Homes for sale in Vancouver, Burnaby, and Port Coquitlam" not in index:
+    errors.append("listing heading is missing the three cities")
+
+llms_section = re.search(r"## Homepage listings\n(.*?)(?:\n## |\Z)", llms, re.S)
+llms_urls = re.findall(r"https://resider\.ca/\S+", llms_section.group(1)) if llms_section else []
+item_urls = [((entry.get("item") or {}).get("url")) for entry in items]
+if llms_urls != item_urls:
+    errors.append("llms.txt homepage listings do not match the ItemList")
 
 for tag in ('rel="canonical"', 'name="description"', 'property="og:image"', "<title>"):
     if tag not in index:

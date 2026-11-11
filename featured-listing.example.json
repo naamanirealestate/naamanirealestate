@@ -1,0 +1,23 @@
+{
+  "kicker": "Featured listing",
+  "price": 1200000,
+  "title": "123 Example Street",
+  "place": "Neighbourhood, Vancouver BC",
+  "city": "Vancouver",
+  "beds": 3,
+  "baths": 2,
+  "living_area": 1500,
+  "subtype": "Townhouse",
+  "facts": ["3 beds", "2 baths", "1,500 sq ft", "Townhouse"],
+  "copy": "One or two sentences about this home. This file is the template. Copy it to featured-listing.json when you have a listing.",
+  "url": "https://resider.ca/bc/vancouver-west/neighbourhood/123-example-street/000000000",
+  "showing": "mailto:adam@naamanirealestate.com?subject=Showing%3A%20123%20Example%20Street",
+  "image": {
+    "avif": "/images/featured-800.avif 800w, /images/featured-1600.avif 1600w",
+    "webp": "/images/featured-800.webp 800w, /images/featured-1600.webp 1600w",
+    "jpg": "/images/featured.jpg",
+    "width": 1600,
+    "height": 1066,
+    "alt": "Living room at 123 Example Street, Vancouver"
+  }
+}

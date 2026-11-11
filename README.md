@@ -8,12 +8,9 @@ Styles live in `styles.css`. There is no build step. Stylesheet and font links c
 
 ## Updating content
 
-The featured listing in `index.html` is edited by hand. When it changes, update:
+The homepage carousel is written by `.cursor/skills/ship/scripts/refresh_listings.py`. It reads `https://resider.ca/spotlight.json` and rewrites the cards, the `ItemList` structured data, and the Homepage listings section in `llms.txt`. A GitHub Action runs that script every day at 12:00pm Pacific (`0 19 * * *` UTC). If the feed is down, the current carousel stays in place.
 
-- The listing card (price, facts, copy, photo). The photo and View listing links go to the Resider listing, not Realtor.ca
-- The `RealEstateListing` entry in the JSON-LD block in `<head>`
-- `<lastmod>` and image entries in `sitemap.xml`
-- `dateModified` in the `WebPage` JSON-LD entry
+`featured-listing.json` ships as `null`. When you have your own listing, copy `featured-listing.example.json` over it, add the AVIF, WebP, and JPG files it names, and the next refresh puts that card first with its description and Book a showing link. Leave the file as `null` to show only the market carousel.
 
 FAQ answers appear twice: in the visible FAQ section and in the `FAQPage` JSON-LD. Keep them identical.
 
